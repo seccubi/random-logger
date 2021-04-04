@@ -23,7 +23,7 @@ do
    case "$I" in
       "1") echo "$D ERROR An error is usually an exception that has been caught and not handled. $EXTRA"
       ;;
-      "2") echo "$D INFO This is less important than debug log and is often used to provide context in the current task. $EXTRA"
+      "2") echo "$D INFO This is less important than debug log and is often used to provide context in the current task. This is less important than debug log and is often used to provide context in the current task. $EXTRA"
       ;;
       "3") echo "$D WARN A warning that should be ignored is usually at this level and should be actionable. $EXTRA"
       ;;
