@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/bin/bash
+array=( "ergosterol" "damnableness" "springhouse" "petrify" "preintellectual" "redecay" "tendril" "nonrestrained" "isostemony" "preaccount" "clubman" "pantelleria" "tomato" "talooka" "provenal" "portobello" "clarksburg" "preexecution" "pourer" "chlorpheniramine")
 
 n=-1
 c=0
@@ -7,6 +8,8 @@ then
    n=$3
 fi
 
+
+
 while [ $n -ne $c ]
 do
    WAIT=$(shuf -i $1-$2 -n 1)
@@ -14,10 +17,9 @@ do
    I=$(shuf -i 1-4 -n 1)
    D=`date -Iseconds`
 
-   UUID=$(head -c100 /dev/urandom | tr -dc 'a-zA-Z0-9')
-   tags="[${UUID:0:4}=${UUID:3:4}] [${UUID:7:4}=${UUID:10:4}] [${UUID:13:4}]"
-   IP1=$(printf "%d.%d.%d.%d\n" "$((RANDOM % 256))" "$((RANDOM % 256))" "$((RANDOM % 256))" "$((RANDOM % 256))")
-   IP2=$(printf "%d.%d.%d.%d\n" "$((RANDOM % 256))" "$((RANDOM % 256))" "$((RANDOM % 256))" "$((RANDOM % 256))")
+   tags="[${array[$RANDOM % ${#array[@]} ]}=${array[$RANDOM % ${#array[@]} ]}] [${array[$RANDOM % ${#array[@]} ]}=${array[$RANDOM % ${#array[@]} ]}] [${array[$RANDOM % ${#array[@]} ]}]"
+   IP1="172.172.172.$(($RANDOM % 64))"
+   IP2="172.172.172.$(($RANDOM % 64))"
    EXTRA="$tags $IP1 $IP2"
 
    case "$I" in
